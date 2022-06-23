@@ -35,3 +35,4 @@ var isAnagram = function(s, t) {
 };
 
 console.log(isAnagram('anagramZ', 'nagaramq'))
+
