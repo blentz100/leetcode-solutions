@@ -1,3 +1,9 @@
+//https://leetcode.com/problems/design-circular-queue/submissions/
+
+/*Runtime: 657 ms, faster than 5.03% of JavaScript online submissions for Design Circular Queue.
+Memory Usage: 54 MB, less than 5.03% of JavaScript online submissions for Design Circular Queue.
+*/
+
 /**
  * @param {number} k
  */
@@ -22,18 +28,25 @@ MyCircularQueue.prototype.enQueue = function(value) {
     }
 };
 
-/**
- * @return {boolean}
- */
+
 MyCircularQueue.prototype.deQueue = function() {
-    
+    if(this.queue.length > 0){
+      this.queue.shift();
+      return true;
+    }
+    else{
+      return false;
+    }
 };
 
 /**
  * @return {number}
  */
 MyCircularQueue.prototype.Front = function() {
-    
+    if(this.queue.length === 0){
+      return -1;
+    }
+    return this.queue[0]
 };
 
 /**
@@ -44,7 +57,7 @@ MyCircularQueue.prototype.Rear = function() {
       return this.queue[this.queue.length -1]
     }
     else{
-      return false;
+      return -1;
     }
 };
 
@@ -79,7 +92,8 @@ console.log(obj.enQueue(3));
 console.log(obj.enQueue(4));
 console.log(obj.Rear());
 console.log(obj.isFull());
-
+console.log(obj.deQueue());
+console.log(obj.enQueue(4));
 
 
 /** 
@@ -92,3 +106,4 @@ console.log(obj.isFull());
  * var param_5 = obj.isEmpty()
  * var param_6 = obj.isFull()
  */
+
