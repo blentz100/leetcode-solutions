@@ -7,19 +7,30 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-  let currentBest = 0;
+  let currentProfit = 0;
+  let leftPointer = 0;
+  let rightPointer = 1;
+  let maxProfit = 0;
   //let pricesCopy = [...prices]
-  for(let i = 0; i < prices.length; i++){
-    console.log('prices[' +  i + '] is : ' + prices[i])
-    let currentMax = Math.max(...prices.slice(i))
-    console.log('currentMax is:' , currentMax)
-    if(currentMax - prices[i] > currentBest){
-      currentBest =  currentMax - prices[i];
+  for(let i = 0; i < prices.length - 1; i++){
+    currentProfit = prices[rightPointer] - prices[leftPointer];
+    if(maxProfit < currentProfit){
+      maxProfit = currentProfit 
     }
-      console.log('currentBest is:', currentBest, '\n')
-   
+    console.log('buy:', prices[leftPointer], ' sell:', 
+                 prices[rightPointer], ' currentProfit:', currentProfit,
+                 'maxProfit is: ', maxProfit) 
+    
+    if(prices[rightPointer] < prices[leftPointer]){
+      rightPointer++;
+      leftPointer++;
+    }
+    else{
+      rightPointer++;
+    }
   }
-  return currentBest
+  
+  return maxProfit;
 };
 
-maxProfit([7,1,5,3,6,4])
+console.log(maxProfit([2,1,2,1,0,1,2]));
