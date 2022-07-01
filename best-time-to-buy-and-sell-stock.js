@@ -1,20 +1,25 @@
+
+//https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+// in progress, almost there!
+
 /**
  * @param {number[]} prices
  * @return {number}
  */
 var maxProfit = function(prices) {
   let currentBest = 0;
+  //let pricesCopy = [...prices]
   for(let i = 0; i < prices.length; i++){
-    for(let j = i + 1; j < prices.length; j++){
-      console.log(`prices[i]: ${prices[i]}, prices[j]: ${prices[j]}, profit is: ${prices[j] - prices[i]}`)
-      if (prices[j] - prices[i] > currentBest){
-        currentBest = prices[j] - prices[i];
-      } 
+    console.log('prices[' +  i + '] is : ' + prices[i])
+    let currentMax = Math.max(...prices.slice(i))
+    console.log('currentMax is:' , currentMax)
+    if(currentMax - prices[i] > currentBest){
+      currentBest =  currentMax - prices[i];
     }
-  }  
-
-
+      console.log('currentBest is:', currentBest, '\n')
+   
+  }
   return currentBest
 };
 
-console.log(maxProfit([7,6,4,3,1]))
+maxProfit([7,1,5,3,6,4])
