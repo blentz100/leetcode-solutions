@@ -1,0 +1,27 @@
+// In Progress
+//https://leetcode.com/problems/product-of-array-except-self/
+
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    const solutionArray = []
+
+    nums.map((item, index, nums) => {
+      const total = (nums.reduce((accumulator, currentValue) => {
+        console.log('nums[index]', nums[index], 'currentValue', currentValue)
+        if(nums[index] === currentValue){
+          return accumulator
+        }
+          return accumulator * currentValue
+      },nums[0]))
+
+        solutionArray.push(total)
+      
+    })
+
+    
+    return solutionArray
+};
