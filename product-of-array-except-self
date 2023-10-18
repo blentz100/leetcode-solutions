@@ -1,5 +1,5 @@
-// In Progress
 //https://leetcode.com/problems/product-of-array-except-self/
+//Solution is accepted, but it's relatively slow
 
 
 /**
@@ -7,21 +7,17 @@
  * @return {number[]}
  */
 var productExceptSelf = function(nums) {
-    const solutionArray = []
+  let solutionArr = []
+  const leftProducts = []
+  const rightProducts = []
 
-    nums.map((item, index, nums) => {
-      const total = (nums.reduce((accumulator, currentValue) => {
-        console.log('nums[index]', nums[index], 'currentValue', currentValue)
-        if(nums[index] === currentValue){
-          return accumulator
-        }
-          return accumulator * currentValue
-      },nums[0]))
-
-        solutionArray.push(total)
-      
-    })
-
-    
-    return solutionArray
-};
+  for(let i = 0, j = nums.length  -1; i < nums.length; i++, j--){
+    leftProducts[i] = isNaN(leftProducts[i-1] * nums[i]) ? nums[i] : leftProducts[i-1] * nums[i]
+    rightProducts[j] = isNaN(rightProducts[j + 1] * nums[j]) ? nums[j] : rightProducts[j + 1] * nums[j]    
+  }
+  for (let i = 0; i < nums.length; i++){
+    solutionArr[i] = (isNaN(leftProducts[i-1]) ? 1 :leftProducts[i-1] )  
+    * (isNaN(rightProducts[i+1]) ? 1 : rightProducts[i+1] )
+  }
+  return solutionArr
+}
