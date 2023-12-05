@@ -3,9 +3,14 @@
  * @return {number}
  */
 var fib = function(n) {
+    //setup the base fibo array
     let fiboArr = [0,1]
+
+    //then build the array as long as n
     for(let i = 2; i <= n; i++){
         fiboArr.push(fiboArr[i-1] + fiboArr[i-2])
     }
+
+    //then just return the final element in the fibo array
     return(fiboArr[n])
 };
