@@ -19,3 +19,15 @@ var twoSum = function(nums, target) {
 }
 
 twoSum([3,3],6)
+
+// Another solution:
+
+function twoSum(nums, target) {
+  const answer = []
+  for(let i = 0; i < nums.length; i++){
+    if(nums.toSpliced(i,1).indexOf(target - nums[i]) >= 0){
+      answer.push(i, nums.toSpliced(i,1).indexOf(target - nums[i])+ 1)
+      return answer
+    }
+  }
+}
