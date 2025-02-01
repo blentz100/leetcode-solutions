@@ -1,7 +1,10 @@
 //https://leetcode.com/problems/two-sum/submissions/
 
+// Solution 1
+// Runtime 10ms beats 48.01%
+// Memory 51.81MB beats 18.09%
+
 var twoSum = function(nums, target) {
-  
   //create a new map object
   let myMap = new Map();
   
@@ -20,7 +23,9 @@ var twoSum = function(nums, target) {
 
 twoSum([3,3],6)
 
-// Another solution:
+// Solution 2
+// Runtime 112ms beats 7.98%
+// Memory 55.44MB beats 5.23%
 
 function twoSum(nums, target) {
   const answer = []
@@ -32,7 +37,7 @@ function twoSum(nums, target) {
   }
 }
 
-// Another solution:
+// Solution 3
 // Runtime 39ms beats 45.29%
 // Memory 49.56MB beats 82.6%
 
