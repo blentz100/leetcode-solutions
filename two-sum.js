@@ -31,3 +31,23 @@ function twoSum(nums, target) {
     }
   }
 }
+
+// Another solution:
+// Runtime 39ms beats 45.29%
+// Memory 49.56MB beats 82.6%
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    for(let i = 0; i < nums.length; i++){
+      let complement = target - nums[i]
+      for(let j = i + 1 ; j < nums.length; j++){
+        if(nums[j] == complement){
+          return [i,j]
+        }
+      }
+    }
+};
