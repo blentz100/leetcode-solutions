@@ -3,6 +3,8 @@
 // Solution 1
 // Runtime 10ms beats 48.01%
 // Memory 51.81MB beats 18.09%
+// Time: O(n)
+// Space: O(n)
 
 var twoSum = function(nums, target) {
   //create a new map object
