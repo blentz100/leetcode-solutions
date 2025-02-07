@@ -29,3 +29,29 @@ var twoSum = function(nums, target) {
 }
 
 console.log(twoSum([3,3], 6));
+
+/*
+Runtime 2ms, beats 62.13%
+Memory 50.25 MB, beats 41.66%
+*
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(numbers, target) {
+
+let left = 0;
+let right = numbers.length -1;
+
+while(numbers[left] + numbers[right] !== target){
+  let currSum = numbers[left] + numbers[right];
+  if(currSum < target) {
+    left++
+  }
+  else {
+    right--
+  }
+}
+  return [left +1, right +1]    
+};
