@@ -1,5 +1,30 @@
 //https://leetcode.com/problems/valid-palindrome/submissions/
 
+// 3/18/2025
+// Runtime is 1ms, beats 98.23%
+// Memory is 54.98MB, beats 56.93%
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    // remove all non alphanumeric characters first
+    const t = s.replaceAll(/[^a-zA-Z0-9]+/g, "").toLowerCase();
+    for(let left = 0, right = t.length -1; left <= right ; left++, right--){
+        if(t[left] !== t[right]){
+          return false
+        }
+    }
+    return true
+};
+
+console.log(isPalindrome("A man, a plan, a canal: Panama"))
+
+
+
+
+// 6/27/2022
 /**
  * @param {string} s
  * @return {boolean}
