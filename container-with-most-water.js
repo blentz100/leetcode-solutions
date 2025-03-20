@@ -15,3 +15,30 @@ var maxArea = function(height) {
   }
   return result
 };
+
+
+// Runtime: 1ms Beats 95.72%, O(n)
+// Memory: 63.28 MB, beats 20.10%
+
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var maxArea = function(height) {
+    
+  let l = 0;
+  let r = height.length - 1
+  let result = 0;
+
+  while( l < r){
+    // compute the area at each iteration
+    result = Math.max(result, (Math.min(height[l], height[r]) * (r - l)))
+    if( height[l] < height [r]){
+      l++
+    }
+    else{
+      r--
+    }
+  }
+  return result
+}
