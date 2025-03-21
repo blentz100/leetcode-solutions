@@ -47,3 +47,18 @@ var isAnagram = function(s, t) {
     
 };
 
+
+// 3/21/25
+// 23ms beats 35.82%
+// 57.81 beats 30.21%
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    if(s.length !== t.length) return false
+    return s.split("").sort().join("") === t.split("").sort().join("")   
+};
+
