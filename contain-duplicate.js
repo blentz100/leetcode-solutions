@@ -43,3 +43,25 @@ var containsDuplicate = function(nums) {
 
 console.log(containsDuplicate(myNums))
 
+// 3/21/25
+// 15ms beats 45.74%
+// 72.67 beats 5.24%
+
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function(nums) {
+  const myMap = new Map();
+    for (let num of nums){
+      if(myMap.has(num)){
+        return true
+      }
+      else{
+        myMap.set(num)
+      }
+    }
+    return false
+};
+
+
