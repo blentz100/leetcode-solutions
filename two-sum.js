@@ -1,5 +1,27 @@
 //https://leetcode.com/problems/two-sum/submissions/
 
+// 3/26/25
+// Runtime 0ms beats 100%
+// Memory 55.58 beats 19.71%
+var twoSum = function(nums, target) {
+    
+    let temp = target - nums[0]
+    const myMap = new Map();
+    myMap.set(temp,0)
+    for (let i = 1; i < nums.length; i++){
+        if(myMap.has(nums[i]) ){
+          return [myMap.get(nums[i]),i]
+        }
+        else{
+          myMap.set(target - nums[i], i)
+        }
+    }
+};
+
+
+
+
+
 // Solution 1
 // Runtime 10ms beats 48.01%
 // Memory 51.81MB beats 18.09%
