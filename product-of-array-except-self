@@ -52,3 +52,26 @@ var productExceptSelf = function(nums) {
   
     return answer;
 };
+
+// 2ms, beats 96%
+// 70MB, beats 59%
+var productExceptSelf = function(nums) {
+    // use a single array to do all the calculations
+    const output = new Array(nums.length).fill(1)
+
+    let prefix = 1
+    let postfix = 1;
+
+
+
+    for(let i = 0; i < nums.length; i++){
+      output[i] = prefix
+      prefix = nums[i] * prefix
+    }
+
+    for(let j = nums.length -1; j >=0; j--){
+      output[j] = output[j] * postfix
+      postfix = nums[j] * postfix
+    }
+    return output;
+};
