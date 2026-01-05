@@ -21,3 +21,34 @@ var productExceptSelf = function(nums) {
   }
   return solutionArr
 }
+
+
+// Another Basic solution done on 1/5/2026
+// 42ms, beats 6.24%
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    // calculate 2 arrays: a prefix array and a postfix array
+    const prefix = []
+    const postfix = []
+    const answer = [];
+
+    for (let i = 0; i < nums.length; i++){
+      prefix[i] = (nums[i - 1] ?? 1)  * (prefix[i - 1] ?? 1)
+    }
+
+    for (let j = nums.length -1; j >= 0; j--){
+      postfix[j] = (nums[j + 1] ?? 1)  * (postfix[j + 1] ?? 1)
+    }
+
+    // then combine them to get the final answer
+
+    for(let k = 0; k < nums.length; k++){
+      answer[k] = prefix[k] * postfix[k]
+    }
+  
+    return answer;
+};
