@@ -1,3 +1,31 @@
+// Neetcode 
+// Memory: 52.3 MB
+// Time: 0.933s
+// Submitted at: 01/13/2026 09:33
+class Solution {
+    /**
+     * @param {number[]} numbers
+     * @param {number} target
+     * @return {number[]}
+     */
+    twoSum(numbers, target) {
+        // Use a left and right pointer
+        // Iterate through the input. If current sum is greater than the target
+        // then move the right pointer, else move the left pointer.
+        let i = 0
+        let j = numbers.length - 1
+        let currentSum
+        while(i < j){
+            currentSum = numbers[i] + numbers[j]
+            if(currentSum == target) return [i+1, j+1]
+            if(currentSum > target) j--
+            else i++
+        }
+    }
+}
+
+
+
 // Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
 
 // Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.
