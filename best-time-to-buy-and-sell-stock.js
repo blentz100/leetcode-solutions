@@ -1,5 +1,39 @@
-//https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+// Memory: 11.4 MB
+// •
+// Time: 0.025s
+// •
+// Submitted at: 01/22/2026 14:18
+class Solution {
+    /**
+     * @param {number[]} prices
+     * @return {number}
+     */
+    maxProfit(prices) {
+        // go from left to right 
+        // each time calculating the lowest thing we've seen to our left, and compute the profit using i
+        // track the highest profit as we go
 
+        let lowest = prices[0];
+        let profit = 0;
+        let workingProfit = 0;
+
+       for(let i = 1; i < prices.length; i++){
+         lowest = Math.min(prices[i - 1], lowest)
+         workingProfit = prices[i] - lowest;
+         profit = Math.max(workingProfit, profit)
+       }
+       return profit;
+
+
+    }
+}
+
+
+
+
+
+
+//https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 // 12/11/2025
 // 1ms beats 96%
