@@ -1,3 +1,52 @@
+// Memory: 10.1 MB
+// •
+// Time: 0.024s
+// •
+// Submitted at: 01/23/2026 10:04
+class Solution {
+    /**
+     * @param {string} s
+     * @return {boolean}
+     */
+    isValid(s) {
+        let stack = [];
+
+        for(let i = 0; i < s.length; i++){
+           // Push any opening symbols onto the stack
+            if(s[i].match(/[\[{(]/)){
+                stack.push(s[i])
+            }
+            
+            else{
+                switch(s[i]){
+                    case ']':
+                        if (stack.at('-1') === '['){
+                            stack.pop()
+                        }
+                        else return false;
+                        break;
+                    case '}':
+                        if (stack.at('-1') === '{'){
+                            stack.pop()
+                        }
+                       else return false;
+                       break;
+                    case ')':
+                        if (stack.at('-1') === '('){
+                            stack.pop()
+                        }
+                        else return false;
+                        break;
+                }
+            }
+        }
+        return stack.length === 0 ? true : false
+    }
+}
+
+
+
+
 /*https://leetcode.com/problems/valid-parentheses/
 
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
