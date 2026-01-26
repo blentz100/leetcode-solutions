@@ -1,0 +1,46 @@
+// Memory: 10.1 MB
+// Time: 32ms
+// Submitted at: 01/26/2026 09:41
+
+class MinStack {
+    constructor() {
+        this.stack = new Array()
+        this.minStack = new Array()
+    }
+
+    // stack.at(-1) returns but doesn't remove the last element of the array
+    // The trick of this problem is the getMin() function
+    // To do this efficiently, we need to maintain two stacks: the main stack
+    // and a stack to track the corresponding min value
+
+    /**
+     * @param {number} val
+     * @return {void}
+     */
+    push(val) {
+        this.stack.push(val)
+        this.minStack.push(Math.min(val, this.minStack.at(-1) ?? val))
+    }
+
+    /**
+     * @return {void}
+     */
+    pop() {
+       this.stack.pop()
+       this.minStack.pop()
+    }
+
+    /**
+     * @return {number}
+     */
+    top() {
+        return this.stack.at(-1)
+    }
+
+    /**
+     * @return {number}
+     */
+    getMin() {
+        return this.minStack.at(-1);
+    }
+}
